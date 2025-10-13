@@ -25,9 +25,24 @@ int main() {
         }
     }
 
-    int resultado = 0;
-    
 
-    cout << endl;
+    int resultado = 0;
+    for (const auto& par : mapita) {
+        vector<int> valor = par.second;
+        char c = par.first;
+        if (c == '.') continue;
+
+        int fila1 = input[c][0];
+        int fila2 = mapita[c][0];
+
+        int col1 = input[c][1];
+        int col2 = mapita[c][1]; 
+
+        
+        int diferencia = abs(fila1 - fila2) + abs(col1 - col2);
+        resultado += diferencia;
+    }
+
+    cout << resultado << endl;
     return 0;
 }
